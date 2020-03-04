@@ -1,6 +1,6 @@
 class Link < ApplicationRecord
   has_many :taggings
-  has_many :tags, through :taggings
+  has_many :tags, through: :taggings
 
   def self.tagged_with(name_tag)
     Tag.find_by!(name_tag: name_tag).links
@@ -19,4 +19,5 @@ class Link < ApplicationRecord
     self.tags = names.split(',').map do |n|
       Tag.where(name_tag: n.strip).first_or_create!
     end
+  end
 end

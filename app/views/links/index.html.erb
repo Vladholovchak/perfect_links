@@ -1,0 +1,10 @@
+<h1>Links</h1>
+<div class = "col-md-8 offset-2">
+  <% @links.each do |link| %>
+    <h2><%= link.title %></h2>
+    <p><%= truncate(link.description, length: 50) %></p>
+    <p><small>Tags: <%= raw link.tags.map(&:name_tag).map { |t| link_to t,
+      tag_path(t) }.join(', ') %></small</p>
+    <p><%= link_to "Read Link", link_path(link) %></p>
+  <% end %>
+</div>
