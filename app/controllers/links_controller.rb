@@ -1,6 +1,6 @@
-class LinksController < ApplicationController
+ class LinksController < ApplicationController
   def index
-    params[:tag] ? @links = Link.tagged_with(params[:tag]) : @links = Link.all
+    params[:tag] ? @links = Link.tagged_with(params[:tag]) : @links = current_user.links
   end
 
   def show
@@ -13,6 +13,7 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(link_params)
+    @link.user_id = current_user.id
     if @link.save
       redirect_to links_path
     else
@@ -23,6 +24,6 @@ class LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:link_name, :description, :all_tags)
+    params.require(:link).permit(:user_id, :link_name, :description, :all_tags)
   end
 end
