@@ -1,11 +1,14 @@
-
 <div class = "col-md-8 offset-2">
     <% @links.each do |link| %>
     <h5>
       <a href="<%=link.link_name%>", class="badge badge-secondary"> <%=link.link_name%> </a>
     </h5>
-      <p><%= truncate(link.description, length: 50) %></p>
+      <p><%= link.description %></p>
+      <% if link.tags.present?%>
       <p>Tags: <%= raw link.all_tags.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+        <%else%>
+      <p>  Tags doesn`t exist </p>
+      <% end %>
       <p><%= link_to "Read Link", link_path(link), class:"btn btn-sm btn-outline-secondary" %></p>
     <% end %>
 </div>
