@@ -1,9 +1,10 @@
 <div class = 'col-md-8 offset-2'>
-  <h1 class = "text-center">New Link </h1>
+  <h5 class = "text-center">New Link </h5>
   <%= simple_form_for @link, url: links_path do |f| %>
     <%= f.input :link_name, as: :url %>
     <%= f.input :description %>
     <%= f.input :all_tags  %>
-    <%= f.submit "Next", class: 'btn btn-lg btn-primary float-right' %>
+    <%= f.submit "Save", class: "btn btn-sm btn-outline-secondary" %>
+    <%= link_to 'Back', links_path, class:"btn btn-sm btn-outline-secondary" %>
   <% end %>
 </div>

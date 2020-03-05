@@ -1,5 +1,12 @@
 <div class = 'col-md-8 offset-2'>
-  <h1><%=@link.link_name%></h1>
-  <p><%=@link.description%></p>
+  <h5>
+    <a href="<%=@link.link_name%>", class="badge badge-secondary"> <%=@link.link_name%> </a>
+  </h5>
+
+  <p><strong>Description:</strong>
+    <%=@link.description%>
+  </p>
+
   <p>Tags: <%= raw @link.tags.map(&:name_tag).map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+  <%= link_to 'Back', links_path, class:"btn btn-sm btn-outline-secondary" %>
 </div>
