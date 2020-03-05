@@ -1,7 +1,8 @@
 class Link < ApplicationRecord
   has_many :taggings, dependent: :destroy
   has_many :tags, through: :taggings
-  belongs_to :user
+  belongs_to :user, dependent: :destroy
+  
   scope :tagged_with, ->(name_tag) {joins(:tags).where(tags:{name_tag: name_tag })}
 
   def all_tags

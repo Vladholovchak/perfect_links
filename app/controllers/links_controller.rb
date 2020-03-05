@@ -1,6 +1,11 @@
  class LinksController < ApplicationController
   def index
-    params[:tag] ? @links = Link.tagged_with(params[:tag]) : @links = current_user.links
+    if params[:tag]
+      @links = current_user.links
+      @links = @links.tagged_with(params[:tag])
+    else
+      @links = current_user.links
+    end
   end
 
   def show
