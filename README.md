@@ -8,16 +8,16 @@ https://guides.rubyonrails.org/
 
 * Ruby version
 
-2.6.6
+  2.6.6
 
 * Rails 
-6.0.2
+  6.0.2
 
 
 * Database creation
 
-rake db:create
-rake db:migrate
+  rake db:create
+  rake db:migrate
 
 * How to run the test suite
 
