@@ -1,4 +1,4 @@
-class TagsController < LinksController
+class TagsController < ApplicationController
 
   def index
     @tags = Tag.all
