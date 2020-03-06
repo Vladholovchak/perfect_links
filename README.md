@@ -16,6 +16,6 @@ https://guides.rubyonrails.org/
 
 * Database creation
 
-  rake db:create
+  rake db:create &
   rake db:migrate
 
