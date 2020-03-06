@@ -18,4 +18,7 @@ https://guides.rubyonrails.org/
 
   rake db:create &
   rake db:migrate
+ * Admin
+
+add admin user from rails console
 
