@@ -1,19 +1,23 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Application for saving usefull links with tags
 
-Things you may want to cover:
+using some things from https://medium.com/@sherzelsmith/add-a-filtering-multiple-tag-system-with-autocomplete-to-your-rails-model-in-rails-5-1bf88cd53e9
+
+https://guides.rubyonrails.org/
 
 * Ruby version
 
-* System dependencies
+2.6.6
 
-* Configuration
+* Rails 
+6.0.2
+
 
 * Database creation
 
-* Database initialization
+rake db:create
+rake db:migrate
 
 * How to run the test suite
 
