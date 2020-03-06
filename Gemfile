@@ -8,6 +8,8 @@ gem 'rails_admin'
 
 gem "devise"
 
+gem "haml-rails"
+
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use postgresql as the database for Active Record
 gem 'pg', '>= 0.18', '< 2.0'

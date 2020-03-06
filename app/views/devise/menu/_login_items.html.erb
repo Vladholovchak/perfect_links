@@ -1,6 +1,0 @@
-<% if user_signed_in? %>
-  <%= link_to 'New Link', new_link_path, class:"btn btn-sm btn-outline-secondary"  %>
-  <%= link_to 'My links', links_path, class:"btn btn-sm btn-outline-secondary"  %>
-  <%= link_to 'Find by Tags', tags_path, class:"btn btn-sm btn-outline-secondary"  %>
-  <%= link_to('Logout', destroy_user_session_path, method: :delete, class:"btn btn-sm btn-outline-secondary") %>
-<% end %>

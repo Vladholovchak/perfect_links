@@ -1,0 +1,4 @@
+.col-md-8.offset-2
+  - @tags.each do |tag|
+    %p
+      = link_to "#{tag.name_tag}", controller: "links", action: "index", tag: tag.name_tag
