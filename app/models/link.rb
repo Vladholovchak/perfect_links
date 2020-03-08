@@ -1,6 +1,10 @@
-class Link < ApplicationRecord
-  has_many :taggings, dependent: :destroy
-  has_many :tags, through: :taggings
+class Link
+  include Mongoid::Document
+
+  field :link_name, type: String
+  field :description, type: String
+
+  has_and_belongs_to_many :tags
   belongs_to :user, dependent: :destroy
 
   validates :link_name, presence: true
