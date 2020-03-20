@@ -166,6 +166,6 @@ test:
 production:
   clients:
     default:
-    uri: ENV['MONGODB_URI']
+    uri: mongodb://heroku_9fk4rz5p:fbq5ql7otngjgph5a3tmtmgv6a@ds341557.mlab.com:41557/heroku_9fk4rz5p
     options:
       connect_timeout: 15
