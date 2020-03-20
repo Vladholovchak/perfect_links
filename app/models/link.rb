@@ -7,7 +7,7 @@ class Link
   field :description, type: String
 
   has_and_belongs_to_many :tags
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
   validates :link_name, presence: true
   scope :tagged_with, ->(name_tag) { where(:tag_ids.in => Tag.where(name_tag: name_tag).pluck(:id))}
 

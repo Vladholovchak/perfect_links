@@ -3,8 +3,8 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
 
-  has_many :links
-  has_many :tags
+  has_many :links, dependent: :destroy
+  has_many :tags, dependent: :destroy
   field :email, type: String
   field :encrypted_password, type: String
   field :admin, type: Boolean, default: false

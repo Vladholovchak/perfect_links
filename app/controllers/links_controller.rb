@@ -2,7 +2,7 @@
 class LinksController < ApplicationController
   def index
     @links = if params[:tag]
-               Link.tagged_with(params[:tag])
+               current_user.links.tagged_with(params[:tag])
              else
                current_user.links
     end
