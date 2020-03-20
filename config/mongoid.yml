@@ -3,13 +3,14 @@ development:
   clients:
     # Defines the default client. (required)
     default:
+      uri: ENV['MONGODB_URI']
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: perfect_links_development
+      #database: perfect_links_development
       # Provides the hosts the default client can connect to. Must be an array
       # of host:port pairs. (required)
-      hosts:
-        - localhost:27017
+     # hosts:
+      #  - localhost:27017
       options:
         # Note that all options listed below are Ruby driver client options (the mongo gem).
         # Please refer to the driver documentation of the version of the mongo gem you are using
@@ -162,10 +163,3 @@ test:
         read:
           mode: :primary
         max_pool_size: 1
-
-production:
-  clients:
-    default:
-    uri: mongodb://heroku_9fk4rz5p:fbq5ql7otngjgph5a3tmtmgv6a@ds341557.mlab.com:41557/heroku_9fk4rz5p
-    options:
-      connect_timeout: 15
