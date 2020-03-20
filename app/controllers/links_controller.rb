@@ -20,9 +20,7 @@ class LinksController < ApplicationController
     @link = Link.new(link_params)
     @link.user_id = current_user.id
     if @link.save
-      params[:link][:all_tags].split(',').map do |n|
-        @link.tags << Tag.where(name_tag: n.strip, user_id: current_user.id).first_or_create!
-      end
+      TagCreator.new(params[:link], @link, current_user).call
       redirect_to links_path
     else
       render :new
