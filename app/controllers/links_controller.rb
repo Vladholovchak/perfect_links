@@ -1,10 +1,10 @@
- class LinksController < ApplicationController
+# frozen_string_literal: true
+class LinksController < ApplicationController
   def index
-    if params[:tag]
-      @links = current_user.links
-      @links = @links.tagged_with(params[:tag])
-    else
-      @links = current_user.links
+    @links = if params[:tag]
+               Link.tagged_with(params[:tag])
+             else
+               current_user.links
     end
   end
 
@@ -20,6 +20,9 @@
     @link = Link.new(link_params)
     @link.user_id = current_user.id
     if @link.save
+      params[:link][:all_tags].split(',').map do |n|
+        @link.tags << Tag.where(name_tag: n.strip, user_id: current_user.id).first_or_create!
+      end
       redirect_to links_path
     else
       render :new
@@ -29,6 +32,6 @@
   private
 
   def link_params
-    params.require(:link).permit(:user_id, :link_name, :description, :all_tags)
+    params.require(:link).permit(:user_id, :link_name, :description)
   end
 end

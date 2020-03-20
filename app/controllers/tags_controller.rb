@@ -1,8 +1,6 @@
 class TagsController < ApplicationController
-
   def index
-    @tags = Tag.all
+    # binding.pry
     @tags = current_user.tags
   end
-
 end
